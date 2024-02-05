@@ -12,7 +12,7 @@ do
 		t.connect = t.Connect
 		return t
 	end
-    local m = {Target=nil,Hit=CFrame.new(),KeyUp=fakeEvent(),KeyDown=fakeEvent(),Button1Up=fakeEvent(),Button1Down=fakeEvent()}
+	local m = {Target=nil,Hit=CFrame.new(),KeyUp=fakeEvent(),KeyDown=fakeEvent(),Button1Up=fakeEvent(),Button1Down=fakeEvent()}
 	local UIS = {InputBegan=fakeEvent(),InputEnded=fakeEvent()}
 	function CAS:BindAction(name,fun,touch,...)
 		CAS.Actions[name] = {Name=name,Function=fun,Keys={...}}
@@ -29,12 +29,12 @@ do
 	m.TrigEvent = te
 	UIS.TrigEvent = te
 	Event.OnServerEvent:Connect(function(plr,io)
-	    if plr~=Player then return end
+		if plr~=Player then return end
 		if io.isMouse then
 			m.Target = io.Target
 			m.Hit = io.Hit
 		elseif io.UserInputType == Enum.UserInputType.MouseButton1 then
-	        if io.UserInputState == Enum.UserInputState.Begin then
+			if io.UserInputState == Enum.UserInputState.Begin then
 				m:TrigEvent("Button1Down")
 			else
 				m:TrigEvent("Button1Up")
@@ -47,14 +47,14 @@ do
 					end
 				end
 			end
-	        if io.UserInputState == Enum.UserInputState.Begin then
-	            m:TrigEvent("KeyDown",io.KeyCode.Name:lower())
+			if io.UserInputState == Enum.UserInputState.Begin then
+				m:TrigEvent("KeyDown",io.KeyCode.Name:lower())
 				UIS:TrigEvent("InputBegan",io,false)
 			else
 				m:TrigEvent("KeyUp",io.KeyCode.Name:lower())
 				UIS:TrigEvent("InputEnded",io,false)
-	        end
-	    end
+			end
+		end
 	end)
 	Mouse,mouse,UserInputService,ContextActionService = m,m,UIS,CAS
 end
@@ -66,8 +66,8 @@ local config = {
 
 --> Player setup
 wait(.25/1)
-local player = game:GetService("Players").LocalPlayer
-local mouse = player:GetMouse()
+local player = Player
+local mouse = Mouse
 local character = player.Character
 
 local humanoid = character["Humanoid"]
