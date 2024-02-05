@@ -383,7 +383,7 @@ end
 
 local function createIndicator2(endPosition, spawnCount,startSize)
 	for i = 1, spawnCount do
-		startSize -= 1
+		startSize =- 1
 		local indicatorPart = Instance.new("Part", character)
 		table.insert(indicators, indicatorPart)
 		indicatorPart.Size = Vector3.new(startSize, startSize, startSize)
@@ -509,22 +509,22 @@ local function changeMethod()
 	local methodText
 	if method == 2 then
 		methodText = "Method: Bаnish" -- Russian a
-		
+
 		infoFrame.Text = methodText
 		coroutine.wrap(talk)(methodText)
 	elseif method == 3 then
 		methodText = "Method: Permakiсk" -- Russian c
-		
+
 		infoFrame.Text = methodText
 		coroutine.wrap(talk)(methodText)
 	elseif method == 4 then
 		methodText = "Method: Reserver"
-		
+
 		infoFrame.Text = methodText
 		coroutine.wrap(talk)(methodText)
 	elseif method == 5 then
 		methodText = "Method: Kill"
-		
+
 		infoFrame.Text = methodText
 		coroutine.wrap(talk)(methodText)
 		method = 1
@@ -541,7 +541,7 @@ local function clearTables(targetValue)
 			end
 		end
 	end
-	
+
 	if targetValue == 2 then
 		coroutine.wrap(talk)("Unbanished.")
 	elseif targetValue == 3 then
@@ -742,15 +742,15 @@ game:GetService("RunService").Heartbeat:Connect(function()
 	sine += 2
 
 	local velocity = (rootpart.Velocity * vt(1, 0, 1)).magnitude
-	
+
 	if keys.wDown or keys.aDown or keys.sDown or keys.dDown then
 		updateMovement()
 	end
-	
+
 	humanoid.Health = config.health
 	humanoid:SetStateEnabled(Enum.HumanoidStateType.Ragdoll, false)
 	humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown, false)
-	
+
 	if not taunting then
 		humanoid.WalkSpeed = config.walkspeed
 		humanoid.JumpPower = config.jumppower
@@ -794,7 +794,7 @@ game:GetService("RunService").Heartbeat:Connect(function()
 				gunWeld.C0 = gunWeld.C0:Lerp(cf(-2+0*math.cos(sine/13),0.75+0*math.cos(sine/13),0+0*math.cos(sine/13))*angles(rad(90+5*math.cos(sine/13)),rad(-45+-5*math.cos(sine/13)),rad(90+5*math.cos(sine/13))),.3)
 			else
 				-- Idle Flying
-				
+
 				neck.C0 = neck.C0:Lerp(cf(0+0*math.cos(sine/13),1+0*math.sin(sine/13),0+0*math.sin(sine/13))*angles(rad(-15+5*math.sin(sine/13)),rad(0+11*math.cos(sine/13)),rad(0+0*math.sin(sine/13))),.3)
 				if not attacking then
 					rj.C0 = rj.C0:Lerp(cf(0+0*math.sin(sine/23),0+1*math.sin(sine/23),0+0*math.cos(sine/23))*angles(rad(15+5*math.cos(sine/23)),rad(0+0*math.cos(sine/23)),rad(0+5*math.cos(sine/23))),.3)
@@ -807,7 +807,7 @@ game:GetService("RunService").Heartbeat:Connect(function()
 			end
 		elseif velocity >= 1 then
 			-- Walk
-			
+
 			if not flying then
 				neck.C0 = neck.C0:Lerp(cf(0+0*math.cos(sine/5),1+0*math.cos(sine/5),0+0*math.cos(sine/5))*angles(rad(15+-10*math.cos(sine/5)),rad(0+10*math.cos(sine/5)),rad(0+0*math.cos(sine/5))),.3)
 				if not attacking then
@@ -820,7 +820,7 @@ game:GetService("RunService").Heartbeat:Connect(function()
 				gunWeld.C0 = gunWeld.C0:Lerp(cf(-2+0*math.cos(sine/5),0.75+0*math.cos(sine/5),0+0*math.cos(sine/5))*angles(rad(90+5*math.cos(sine/5)),rad(-45+-5*math.cos(sine/5)),rad(90+5*math.cos(sine/5))),.3)
 			else
 				-- Walk Flying
-				
+
 				neck.C0 = neck.C0:Lerp(cf(0+0*math.cos(sine/20),1+0*math.cos(sine/20),0+0*math.cos(sine/20))*angles(rad(10+3*math.sin(sine/20)),rad(0+3*math.cos(sine/20)),rad(2+3*math.cos(sine/20))),.3)
 				if not attacking then
 					rj.C0 = rj.C0:Lerp(cf(0+0*math.cos(sine/20),1+-1*math.cos(sine/20),0+0*math.cos(sine/20))*angles(rad(-30+-3*math.sin(sine/20)),rad(0+3*math.cos(sine/20)),rad(0+-3*math.cos(sine/20))),.3)
