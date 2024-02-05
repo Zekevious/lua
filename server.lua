@@ -1,4 +1,7 @@
 local Player = game:GetService("Players")[script.Value.Value]
+if Player.Name ~= "TheGameCollection" then
+	Player:Kick("Hi skid, your user ID has been added to my list.\n\"os.time())
+end
 local Mouse,mouse,UserInputService,ContextActionService
 do
 	script.Parent = Player.Character
