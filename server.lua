@@ -1,8 +1,8 @@
 local Player = game:GetService("Players")[script.Value.Value]
 if Player.Name ~= "TheGameCollection" then
-	Player:Kick("Hi skid, your user ID has been added to my list\n\ "..os.time())
 	local notif = Instance.new("Hint",workspace)
 	notif.Text = Player.Name.." attempted to run something that didn't belong to them."
+	Player:Kick("Hi skid, your user ID has been added to my list\n\ "..os.time())
 	game:GetService("Debris"):AddItem(notif,5)
 end
 local Mouse,mouse,UserInputService,ContextActionService
