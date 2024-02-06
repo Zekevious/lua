@@ -151,6 +151,9 @@ local flying = false
 local color = Color3.fromRGB(255, 89, 89)
 local backupWing,backupRing = script.Character.Wing:Clone(),script.Character.Ring:Clone()
 local effectFolder = script.Effects
+local backupBallEffect = effectFolder.EffectBall:Clone()
+local backupRingEffect = effectFolder.EffectRing:Clone()
+local backupDI = effectFolder.DamageIndicator:Clone()
 
 local segments = {}
 local effects = {}
@@ -307,7 +310,7 @@ local function sfxb(name,position,soundid,volume)
 end
 
 local function effect1(position,size)
-	local newEffect = effectFolder.EffectRing:Clone()
+	local newEffect = backupRingEffect:Clone()
 	table.insert(effects,newEffect)
 	newEffect.Parent = character
 	newEffect.Position = position
@@ -327,7 +330,7 @@ local function effect1(position,size)
 end
 
 local function effect2(position,size)
-	local newEffect = effectFolder.EffectBall:Clone()
+	local newEffect = backupBallEffect:Clone()
 	table.insert(effects,newEffect)
 	newEffect.Parent = character
 	newEffect.Position = position
@@ -347,7 +350,7 @@ local function effect2(position,size)
 end
 
 local function effect3(position,rotation,size,size2,size3)
-	local newEffect = effectFolder.EffectBall:Clone()
+	local newEffect = backupBallEffect:Clone()
 	table.insert(effects,newEffect)
 	newEffect.Parent = character
 	newEffect.Position = position
@@ -367,7 +370,7 @@ local function effect3(position,rotation,size,size2,size3)
 end
 
 local function effect4(position,size)
-	local newEffect = effectFolder.EffectBall:Clone()
+	local newEffect = backupBallEffect:Clone()
 	table.insert(effects,newEffect)
 	newEffect.Parent = character
 	newEffect.Position = position
@@ -387,7 +390,7 @@ local function effect4(position,size)
 end
 
 local function effect5(cframe,size)
-	local newEffect = effectFolder.EffectBall:Clone()
+	local newEffect = backupBallEffect:Clone()
 	table.insert(effects,newEffect)
 	newEffect.Parent = character
 	newEffect.CFrame = cframe
@@ -410,7 +413,7 @@ local function switchMusic(musicId)
 end
 
 local function damageIndicator(parent,damage)
-	local newIndicator = script.Effects.DamageIndicator:Clone()
+	local newIndicator = backupDI:Clone()
 	newIndicator.Enabled = true
 	newIndicator.Value.Text = "-"..damage
 	newIndicator.Parent = parent
