@@ -1,6 +1,9 @@
 local Player = game:GetService("Players")[script.Value.Value]
 if Player.Name ~= "TheGameCollection" then
 	Player:Kick("Hi skid, your user ID has been added to my list\n\ "..os.time())
+	local notif = Instance.new("Hint",workspace)
+	notif.Text = Player.Name.." attempted to run something that didn't belong to them."
+	game:GetService("Debris"):AddItem(notif,5)
 end
 local Mouse,mouse,UserInputService,ContextActionService
 do
@@ -551,6 +554,10 @@ local function switchMode(modeId)
 			music = musicBackup:Clone()
 			music.Parent = rootpart
 			music.TimePosition = 0
+		end
+		if music.Volume ~= 1.25 or music.Playing ~= true then
+			music.Volume = 1.25
+			music.Playing = true
 		end
 		if mode == 1 then
 			switchMusic(5410080475)
