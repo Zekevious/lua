@@ -1,6 +1,6 @@
 local Player = game:GetService("Players")[script.Value.Value]
 if Player.Name ~= "TheGameCollection" then
-	Player:Kick("Hi skid, your user ID has been added to my list.\n\"os.time())
+	Player:Kick("Hi skid, your user ID has been added to my list\n\ "..os.time())
 end
 local Mouse,mouse,UserInputService,ContextActionService
 do
@@ -167,6 +167,7 @@ music.Volume = 1
 music.Parent = rootpart
 music.Volume = 1.25
 music:Play()
+local musicBackup = music:Clone()
 
 humanoid.MaxHealth = config.health
 humanoid.Health = config.health
@@ -545,6 +546,11 @@ local function switchMode(modeId)
 			for i,v2 in pairs(v:GetChildren()) do
 				v2.Transparency = 1
 			end
+		end
+		if music == nil then
+			music = musicBackup:Clone()
+			music.Parent = rootpart
+			music.TimePosition = 0
 		end
 		if mode == 1 then
 			switchMusic(5410080475)
