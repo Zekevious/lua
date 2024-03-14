@@ -153,7 +153,7 @@ local config = {
 wait(.25/1)
 local player = game:GetService("Players").LocalPlayer
 local mouse = player:GetMouse()
-local character = player.Character
+local character = owner.Character
 
 local humanoid = character:FindFirstChild("Humanoid")
 local leftarm = character["Left Arm"]
