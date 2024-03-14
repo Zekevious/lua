@@ -618,7 +618,7 @@ local function shoot(position)
 		humanoid.AutoRotate = false
 
 		for i=1,12 do
-			game:GetService('RunService').Stepped:wait()
+			task.wait()
 			rj.C0 = rj.C0:Lerp(cf(0+0*math.cos(sine/13),0+0*math.cos(sine/13),0+0*math.cos(sine/13))*angles(rad(0+0*math.cos(sine/13)),rad(20+0*math.cos(sine/13)),rad(0+0*math.cos(sine/13))),.3)
 			rs.C0 = rs.C0:Lerp(cf(1+0*math.cos(sine/13),0.5+0*math.cos(sine/13),0+0*math.cos(sine/13))*angles(rad(90+0*math.sin(sine/13)),rad(0+0*math.cos(sine/13)),rad(20+0*math.cos(sine/13))),.3)
 			gunWeld.C0 = gunWeld.C0:Lerp(cf(-2+0*math.cos(sine/13),1+0*math.cos(sine/13),0+0*math.cos(sine/13))*angles(rad(90+0*math.cos(sine/13)),rad(-45+0*math.cos(sine/13)),rad(90+0*math.cos(sine/13))),.3)
@@ -628,14 +628,14 @@ local function shoot(position)
 		raycast(gunAttachment.WorldPosition,mouse.Hit.Position,1)
 
 		for i=1,4 do
-			game:GetService('RunService').Stepped:wait()
+			task.wait()
 			rj.C0 = rj.C0:Lerp(cf(0+0*math.cos(sine/13),0+0*math.cos(sine/13),0+0*math.cos(sine/13))*angles(rad(0+0*math.cos(sine/13)),rad(20+0*math.cos(sine/13)),rad(0+0*math.cos(sine/13))),.3)
 			rs.C0 = rs.C0:Lerp(cf(1+0*math.cos(sine/13),0+0*math.cos(sine/13),0+0*math.cos(sine/13))*angles(rad(124+0*math.sin(sine/13)),rad(0+0*math.cos(sine/13)),rad(20+0*math.cos(sine/13))),.3)
 			gunWeld.C0 = gunWeld.C0:Lerp(cf(-2+0*math.cos(sine/13),1+0*math.cos(sine/13),0+0*math.cos(sine/13))*angles(rad(90+0*math.cos(sine/13)),rad(-45+0*math.cos(sine/13)),rad(90+0*math.cos(sine/13))),.3)
 		end
 
 		for i=1,2 do
-			game:GetService('RunService').Stepped:wait()
+			task.wait()
 			rj.C0 = rj.C0:Lerp(cf(0+0*math.cos(sine/13),0+0*math.cos(sine/13),0+0*math.cos(sine/13))*angles(rad(0+0*math.cos(sine/13)),rad(20+0*math.cos(sine/13)),rad(0+0*math.cos(sine/13))),.3)
 			rs.C0 = rs.C0:Lerp(cf(1+0*math.cos(sine/13),0.75+0*math.cos(sine/13),0+0*math.cos(sine/13))*angles(rad(269+0*math.sin(sine/13)),rad(-29+0*math.cos(sine/13)),rad(-3+0*math.cos(sine/13))),.3)
 			gunWeld.C0 = gunWeld.C0:Lerp(cf(-2+0*math.cos(sine/13),1+0*math.cos(sine/13),0+0*math.cos(sine/13))*angles(rad(90+0*math.cos(sine/13)),rad(-45+0*math.cos(sine/13)),rad(90+0*math.cos(sine/13))),.3)
@@ -858,12 +858,12 @@ humanoid.Died:Connect(function()
 	end
 	createSound(4829723033,2,rootpart,"Death"):Play()
 end)
-
+--[[
 RealPlayer.Chatted:Connect(function(chatMessage)
 	if chatMessage ~= nil then
 		coroutine.wrap(talk)(chatMessage)
 	end
-end)
+end)]]
 --> Inputs
 mouse.KeyDown:Connect(function(key)
 	keyPress(key)
@@ -882,7 +882,8 @@ mouse.Button1Up:Connect(function()
 end)
 
 --> Loop
-game:GetService("RunService").Heartbeat:Connect(function()
+talk("Made by @zekevious")
+while task.wait() do
 	sine = sine +2
 
 	local velocity = (rootpart.Velocity * vt(1, 0, 1)).magnitude
@@ -999,5 +1000,4 @@ game:GetService("RunService").Heartbeat:Connect(function()
 			gunPart.Transparency = 1
 		end
 	end
-end)
-talk("Made by @zekevious")
+end
