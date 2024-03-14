@@ -155,7 +155,7 @@ local player = game:GetService("Players").LocalPlayer
 local mouse = player:GetMouse()
 local character = player.Character
 
-local humanoid = character["Humanoid"]
+local humanoid = character:FindFirstChild("Humanoid")
 local leftarm = character["Left Arm"]
 local rightarm = character["Right Arm"]
 local leftleg = character["Left Leg"]
