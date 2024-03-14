@@ -505,7 +505,7 @@ local function shoot(position)
 end
 
 local function changeMethod()
-	method += 1
+	method = method +1
 	local methodText
 	if method == 2 then
 		methodText = "Method: Bаnish" -- Russian a
@@ -739,7 +739,7 @@ end)
 
 --> Loop
 game:GetService("RunService").Heartbeat:Connect(function()
-	sine += 2
+	sine = sine +2
 
 	local velocity = (rootpart.Velocity * vt(1, 0, 1)).magnitude
 
